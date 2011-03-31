@@ -2,7 +2,6 @@ var sys = require('sys');
 var fs = require('fs');
 var express = require('express');
 var ejs = require('ejs');
-var props = require('properties');
 var wrapper = require('./requestwrapper');
 var cursebird = require('./cursebird');
 props.twitter = 'api.twitter.com';
@@ -55,4 +54,4 @@ var renderList = function(response, curses, listInfo){
     });   
 };
 
-app.listen(props.port);
+app.listen(3000);
