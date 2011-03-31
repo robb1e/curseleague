@@ -1,0 +1,14 @@
+html * {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+}
+#wrapper {
+    font-family: arial,sans-serif;
+    margin: 20px auto;
+    width: 940px;
+}
+.eight-col {
+    margin: 0 auto;
+    width: 620px;
+}
