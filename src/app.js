@@ -8,7 +8,8 @@ var props = {};
 props.twitter = 'api.twitter.com';
 
 var app = express.createServer();
-app.use(express.static(__dirname + '/../public'));
+app.use(express.staticProvider(__dirname + '/../public'));
+app.use(express.bodyDecoder());
 
 app.get('/', function(req, res){
 	res.render('index.ejs');
@@ -54,4 +55,4 @@ var renderList = function(response, curses, listInfo){
     });   
 };
 
-app.listen(3000);
+app.listen(80);
