@@ -4,6 +4,7 @@ var express = require('express');
 var ejs = require('ejs');
 var wrapper = require('./requestwrapper');
 var cursebird = require('./cursebird');
+var props = {};
 props.twitter = 'api.twitter.com';
 
 var app = express.createServer();
