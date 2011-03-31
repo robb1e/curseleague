@@ -46,11 +46,12 @@ app.get('/:username/:listname', function(req, res){
 });
 
 var renderList = function(response, curses, listInfo){
-    curses.sort(function(a,b){
+    curses = curses.sort(function(a,b){
        var result = parseInt(a.level) < parseInt(b.level); 
        console.log("comparing " + a.level + " with " + b.level + " = " + result)
        return result
     });
+    console.log("ORDERED CURSES: " + curses);
     
     response.render('list.ejs', {
         locals:{'curses':curses, 'listinfo': listInfo}
