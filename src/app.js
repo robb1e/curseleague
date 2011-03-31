@@ -47,7 +47,9 @@ app.get('/:username/:listname', function(req, res){
 
 var renderList = function(response, curses, listInfo){
     curses.sort(function(a,b){
-       return parseInt(a.level) < parseInt(b.level); 
+       var result = parseInt(a.level) < parseInt(b.level); 
+       console.log("comparing " + a.level + " with " + b.level + " = " + result)
+       return result
     });
     
     response.render('list.ejs', {
