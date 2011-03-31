@@ -8,7 +8,7 @@ var props = {};
 props.twitter = 'api.twitter.com';
 
 var app = express.createServer();
-app.use(express.staticProvider(__dirname + '/../public'));
+app.use(express.static(__dirname + '/../public'));
 app.use(express.bodyDecoder());
 
 app.get('/', function(req, res){
