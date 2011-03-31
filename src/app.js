@@ -51,7 +51,7 @@ var renderList = function(response, curses, listInfo){
        console.log("comparing " + a.level + " with " + b.level + " = " + result)
        return result
     });
-    console.log("ORDERED CURSES: " + curses);
+    console.log("ORDERED CURSES: " + JSON.stringify(curses));
     
     response.render('list.ejs', {
         locals:{'curses':curses, 'listinfo': listInfo}
