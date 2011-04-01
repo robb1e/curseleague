@@ -12,14 +12,10 @@ html * {
     margin: 0 auto;
     width: 620px;
 }
-.div {
+div {
     padding-bottom:25px;
 }
-#first{
+.league{
     float:left;
-    width:300px;
-}
-#second{
-    float:left;
-    width:300px;    
+    width:400px;
 }
