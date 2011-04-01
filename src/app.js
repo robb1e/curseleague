@@ -28,14 +28,17 @@ app.get('/:username/:listname', function(req, res){
 app.get('/:username/:listname/vs/:otherusername/:otherlistname', function(req, res){
     var username = req.params.username;
     var listname = req.params.listname;
-    var result = {};
+    var result = {
+        first : {},
+        second: {}
+    };
     getList(username, listname, function(curses, listInfo){
-        result.first = {'curses':curses, 'listinfo': listInfo}
+        result.first = {'curses':curses, 'listinfo': listInfo};
         if (result.second !== {})
             renderVerses(res, result);
     });    
     getList(req.params.otherusername, req.params.otherlistname, function(curses, listInfo){
-        result.second = {'curses':curses, 'listinfo': listInfo}
+        result.second = {'curses':curses, 'listinfo': listInfo};
         if (result.first !== {})
             renderVerses(res, result);
     });
@@ -45,7 +48,7 @@ var renderVerses = function(res, data){
     res.render('vs.ejs', {
         locals:{'first':{'curses':data.first.curses, 'listinfo':data.first.listinfo}, 'second':{'curses':data.second.curses, 'listinfo':data.second.listinfo}}
     });
-}
+};
 
 var getList = function(username, listname, callback){
     var path = '/1/' + username + '/' + listname + '/members.json';
@@ -77,6 +80,6 @@ var getList = function(username, listname, callback){
             });
         }
     });
-}
+};
 
 app.listen(80);
