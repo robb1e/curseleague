@@ -28,18 +28,15 @@ app.get('/:username/:listname', function(req, res){
 app.get('/:username/:listname/vs/:otherusername/:otherlistname', function(req, res){
     var username = req.params.username;
     var listname = req.params.listname;
-    var result = {
-        first : {},
-        second: {}
-    };
+    var result = {};
     getList(username, listname, function(curses, listInfo){
         result.first = {'curses':curses, 'listinfo': listInfo};
-        if (result.second != {})
+        if (result.second != undefined)
             renderVerses(res, result);
     });    
     getList(req.params.otherusername, req.params.otherlistname, function(curses, listInfo){
         result.second = {'curses':curses, 'listinfo': listInfo};
-        if (result.first != {})
+        if (result.first != undefined)
             renderVerses(res, result);
     });
 });
