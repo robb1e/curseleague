@@ -18,7 +18,36 @@ app.get('/', function(req, res){
 app.get('/:username/:listname', function(req, res){
     var username = req.params.username;
     var listname = req.params.listname;
-    
+    getList(username, listname, function(curses, listInfo){
+        res.render('list.ejs', {
+            locals:{'curses':curses, 'listinfo': listInfo}
+        }); 
+    });
+});
+
+app.get('/:username/:listname/vs/:otherusername/:otherlistname', function(req, res){
+    var username = req.params.username;
+    var listname = req.params.listname;
+    var result = {};
+    getList(username, listname, function(curses, listInfo){
+        result.first = {'curses':curses, 'listinfo': listInfo}
+        if (result.second !== {})
+            renderVerses(res, result);
+    });    
+    getList(req.params.otherusername, req.params.otherlistname, function(curses, listInfo){
+        result.second = {'curses':curses, 'listinfo': listInfo}
+        if (result.first !== {})
+            renderVerses(res, result);
+    });
+});
+
+var renderVerses = function(res, data){
+    res.render('vs.ejs', {
+        locals:{'first':{'curses':data.first.curses, 'listinfo':data.first.listinfo}, 'second':{'curses':data.second.curses, 'listinfo':data.second.listinfo}}
+    });
+}
+
+var getList = function(username, listname, callback){
     var path = '/1/' + username + '/' + listname + '/members.json';
     var listInfo = {
         path: '/1/' + username + '/lists/' + listname + '.json',
@@ -39,22 +68,15 @@ app.get('/:username/:listname', function(req, res){
                     like: data.swears_like
                 };
                 curses.push(user);
-                if (curses.length == users.length)
-                    renderList(res, curses, listInfo);
+                if (curses.length == users.length){
+                    curses.sort(function(a,b){
+                       return parseInt(b.level) - parseInt(a.level); 
+                    });
+                    callback(curses, listInfo);
+                }
             });
         }
     });
-});
-
-var renderList = function(response, curses, listInfo){
-    curses.sort(function(a,b){
-       var result = parseInt(b.level) - parseInt(a.level); 
-       return result
-    });
-    
-    response.render('list.ejs', {
-        locals:{'curses':curses, 'listinfo': listInfo}
-    });   
-};
+}
 
 app.listen(80);
