@@ -10,11 +10,11 @@ html * {
 }
 .eight-col {
     margin: 0 auto;
-    width: 620px;
+    width: 800px;
 }
 .div {
     padding-bottom:25px;
-    width:200px;
+    width:300px;
 }
 #first{
     float:left;
