@@ -14,4 +14,11 @@ html * {
 }
 .div {
     padding-bottom:25px;
+    width:200px;
+}
+#first{
+    float:left;
+}
+#second{
+    float:left;
 }
