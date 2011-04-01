@@ -18,6 +18,7 @@ app.get('/', function(req, res){
 app.get('/:username/:listname', function(req, res){
     var username = req.params.username;
     var listname = req.params.listname;
+    
     var path = '/1/' + username + '/' + listname + '/members.json';
     var listInfo = {
         path: '/1/' + username + '/lists/' + listname + '.json',
