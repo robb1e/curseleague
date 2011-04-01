@@ -34,15 +34,15 @@ app.get('/:username/:listname/vs/:otherusername/:otherlistname', function(req, r
     };
     getList(username, listname, function(curses, listInfo){
         result.first = {'curses':curses, 'listinfo': listInfo};
-        console.log("first=" + result.first);
-        console.log("second=" + result.second);
+        console.log("first=" + JSON.stringify(result.first));
+        console.log("second=" + JSON.stringify(result.second));
         if (result.second !== {})
             renderVerses(res, result);
     });    
     getList(req.params.otherusername, req.params.otherlistname, function(curses, listInfo){
         result.second = {'curses':curses, 'listinfo': listInfo};
-        console.log("first=" + result.first);
-        console.log("second=" + result.second);
+        console.log("first=" + JSON.stringify(result.first));
+        console.log("second=" + JSON.stringify(result.second));
         if (result.first !== {})
             renderVerses(res, result);
     });
