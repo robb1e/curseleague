@@ -50,7 +50,7 @@ app.get('/:username/:listname/vs/:otherusername/:otherlistname', function(req, r
 
 var renderVerses = function(res, data){
     
-    console.log("calling render with " + JSON.stringify(data.first));
+    console.log("calling render with " + JSON.stringify(data));
     
     res.render('vs.ejs', {
         locals:{'first':{'curses':data.first.curses, 'listinfo':data.first.listinfo}, 'second':{'curses':data.second.curses, 'listinfo':data.second.listinfo}}
