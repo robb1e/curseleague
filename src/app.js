@@ -8,8 +8,7 @@ var props = {};
 props.twitter = 'api.twitter.com';
 
 var app = express.createServer();
-app.use(express.static(__dirname + '/../public'));
-//app.use(express.bodyDecoder());
+app.use(express['static'](__dirname + '/../public'));
 
 app.get('/', function(req, res){
 	res.render('index.ejs');
@@ -82,4 +81,4 @@ var getList = function(username, listname, callback){
     });
 };
 
-app.listen(80);
+app.listen(3000);
