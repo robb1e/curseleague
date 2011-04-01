@@ -14,11 +14,12 @@ html * {
 }
 .div {
     padding-bottom:25px;
-    width:300px;
 }
 #first{
     float:left;
+    width:300px;
 }
 #second{
     float:left;
+    width:300px;    
 }
