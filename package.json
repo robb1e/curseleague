@@ -1,0 +1,17 @@
+{
+  "name": "curseleague",
+  "description": "A simple site that sits on top of Twitter and Cursebird",
+  "version": "0.0.2",
+  "author": "Robbie Clutton <robbie@iclutton.com>",
+  "contributors": [ 
+    { "name": "Robbie Clutton", "email": "robbie@iclutton.com" }
+  ],
+  "dependencies": {
+    "connect": ">= 1.2.0 < 2.0.0",
+    "express": ">= 2.0.2",
+    "ejs": ">= 0.3.1"
+  },
+  "repository": "git://github.com/robb1e/curseleague",
+  "main": "server",
+  "engines": { "node": ">= 0.4.1 < 0.5.0" }
+}
