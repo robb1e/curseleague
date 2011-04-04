@@ -18,6 +18,7 @@ twitter.getListMembers = function(username, listname, callback){
 twitter._getListMembers = function(username, listname, cursor, users, callback){
     var path = '/1/' + username + '/' + listname + '/members.json?cursor=' + cursor;
     wrapper.request(props.twitter, path, function(data){
+        
         var usernames = [];
         for (i = 0; i < data.users.length; i++){
             usernames.push(data.users[i].screen_name);

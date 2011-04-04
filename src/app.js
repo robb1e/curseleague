@@ -11,7 +11,6 @@ props.twitter = 'api.twitter.com';
 
 var app = express.createServer();
 app.use(express['static'](__dirname + '/../public'));
-app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 app.get('/', function(req, res){
 	res.render('index.ejs');
@@ -22,7 +21,7 @@ app.get('/:username/:listname', function(req, res){
     var listname = req.params.listname;
     getList(username, listname, function(curses, listInfo, level){
         res.render('list.ejs', {
-            locals:{'curses':curses, 'listinfo': listInfo, 'level': level, 'average': Math.round(level / curses.length)}
+            locals:{'curses':curses, 'listinfo': listInfo, 'level': level, 'average': Math.round(level / curses.length), 'listlike': cursebird.like(Math.round(level / curses.length))}
         }); 
     });
 });
@@ -32,12 +31,12 @@ app.get('/:username/:listname/vs/:otherusername/:otherlistname', function(req, r
     var listname = req.params.listname;
     var result = {};
     getList(username, listname, function(curses, listInfo, level){
-        result.first = {'curses':curses, 'listinfo': listInfo, 'level': level, 'average': Math.round(level / curses.length)};
+        result.first = {'curses':curses, 'listinfo': listInfo, 'level': level, 'average': Math.round(level / curses.length), 'listlike': cursebird.like(Math.round(level / curses.length))};
         if (result.second != undefined)
             renderVerses(res, result);
     });    
     getList(req.params.otherusername, req.params.otherlistname, function(curses, listInfo, level){
-        result.second = {'curses':curses, 'listinfo': listInfo, 'level': level, 'average': Math.round(level / curses.length)};
+        result.second = {'curses':curses, 'listinfo': listInfo, 'level': level, 'average': Math.round(level / curses.length), 'listlike': cursebird.like(Math.round(level / curses.length))};
         if (result.first != undefined)
             renderVerses(res, result);
     });
@@ -45,8 +44,8 @@ app.get('/:username/:listname/vs/:otherusername/:otherlistname', function(req, r
 
 var renderVerses = function(res, data){
     res.render('vs.ejs', {
-        locals:{'first':{'curses':data.first.curses, 'listinfo':data.first.listinfo, 'level': data.first.level, 'average': Math.round(data.first.level / data.first.curses.length)}, 
-        'second':{'curses':data.second.curses, 'listinfo':data.second.listinfo, 'level': data.second.level, 'average': Math.round(data.second.level / data.second.curses.length)}}
+        locals:{'first':{'curses':data.first.curses, 'listinfo':data.first.listinfo, 'level': data.first.level, 'average': Math.round(data.first.level / data.first.curses.length), 'listlike': cursebird.like(Math.round(data.first.level / data.first.curses.length))}, 
+        'second':{'curses':data.second.curses, 'listinfo':data.second.listinfo, 'level': data.second.level, 'average': Math.round(data.second.level / data.second.curses.length), 'listlike': cursebird.like(Math.round(data.second.level / data.second.curses.length))}}
     });
 };
 
@@ -78,11 +77,11 @@ var _getList = function(username, listname, callback){
            var screen_name = users[i];
            cursebird.lookup(screen_name, function(data){   
                var user = {
-                   level : data.level,
+                   level : data.xp_score,
                    username : data.username,
                    like: data.swears_like
                };
-               level += parseInt(data.level);
+               level += parseInt(data.xp_score);
                curses.push(user);
                if (curses.length == users.length){
                    curses.sort(function(a,b){
@@ -97,13 +96,18 @@ var _getList = function(username, listname, callback){
     });
 };
 
+app.get("*", function(req, res){
+    res.render('404.ejs', {status:404});
+});
+
 app.error(function(err, req, res, next){
-    console.log("ERROR: express caught an exception: " + err.message);
-    res.send(err.message, 500); 
+    console.log("EXPRESS CAUGHT ERROR: " + err.message);
+    res.render('500.ejs', {status:500}); 
 });
-/*
+
 process.on('uncaughtException',function(error){
-    console.log("ERROR: " + error); 
+    console.log("SYSTEM CAUGHT ERROR: " + error); 
+    throw new NotFound;
 });
-*/
+
 app.listen(3000);
