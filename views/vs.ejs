@@ -1,22 +1,23 @@
-<h1>Fight now!</h1>
+	<hgroup>
+		<h1>Fight now!</h1>
+		<h2 class="vs">Vs</h2>
+	</hgroup>
 
-<section>
-	<header>
-		<h2><%- first.listinfo.name %></h2>
-		<h3><%- first.level %> points, <%- first.average %> mean</h3>
-	</header>
-	<ol>
-		<%- partial('item.ejs', first.curses) %>
-	</ol>
-</section>
-
-<section>
-	<header>
-		<h2><%- second.listinfo.name %></h2>
-		<h3><%- second.level %> points, <%- second.average %> mean</h3>
-	</header>
-	<ol>
-		<%- partial('item.ejs', second.curses) %>
-	</ol>
-</section>
-
+	<section class="vsList">
+		<header>
+			<h2><%- first.listinfo.name ? first.listinfo.name : '...' %></h2>
+			<h3><%- first.level %> points, <%- first.average %> mean</h3>
+		</header>
+		<ol>
+<%- partial('item.ejs', first.curses) %>
+		</ol>
+	</section>
+	<section class="vsList">
+		<header>
+			<h2><%- second.listinfo.name ?  second.listinfo.name : '...' %></h2>
+			<h3><%- second.level %> points, <%- second.average %> mean</h3>
+		</header>
+		<ol>
+<%- partial('item.ejs', second.curses) %>
+		</ol>
+	</section>

@@ -1,0 +1,98 @@
+/* master styles
+--------------------------------------------- */
+html{
+	background-color: #191919;
+}
+
+body{
+	width: 1000px;
+	margin: 0 auto;
+	font-family: "HelveticaNeue-Light","HelveticaNeue",Helvetica,Arial,sans-serif;
+	color: #888;
+}
+
+a:link, a:visited{
+	color: #02addb;
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover, a:active, a:focus{
+	 color: #41d7ff;
+	 text-decoration: underline;
+}
+
+h1,h2,h3{
+	color: #eee;
+}
+
+h2, h3{
+	letter-spacing: 3px;
+}
+
+h1{
+	font-family: 'Permanent Marker', arial, serif;
+	font-size: 4.063em;
+	text-align: center;
+}
+
+h2{
+	margin:20px 0 5px;
+	font-size:1.875em;
+}
+
+hgroup h2{
+	margin: 0 0 20px 0;
+	line-height: 1;
+}
+
+p{
+	line-height: 1.2;
+	margin-bottom: 7px;
+}
+
+li{
+	list-style: square;
+	list-style-position: inside;
+	margin-bottom: 5px;
+}
+
+::-moz-selection{
+	background:#c0fe16; color:#000; text-shadow: none;
+}
+
+::selection {
+	background:#c0fe16; color:#000; text-shadow: none;
+}
+
+
+/* list items
+--------------------------------------------- */
+.points{
+	color: #666;
+	padding-left: 5px;
+}
+
+
+/* error pages
+--------------------------------------------- */
+.errorPage{
+	margin-top: 40px;
+	font-size:	5em;
+	-webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.6, transparent), to(rgba(0,0,0,0.5)));
+}
+
+
+/* vs page
+--------------------------------------------- */
+.vsList{
+	float: left;
+	width: 50%;
+}
+
+.vs{
+	font-family: 'Permanent Marker', arial, serif;
+	color: #f00;
+	text-align: center;
+	font-size: 4.063em;
+}

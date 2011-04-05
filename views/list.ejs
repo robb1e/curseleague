@@ -1,9 +1,8 @@
-<hgroup>
-	# TODO: Needs title alternative if empty
-	<h1><%- listinfo.name %></h1>
-	<h2><%- level %> points, <%- average %> mean</h2>
-</hgroup>
+	<hgroup>
+		<h1><%- listinfo.name ? listinfo.name : '...'  %></h1>
+		<h2><%- level %> points, <%- average %> mean</h2>
+	</hgroup>
 
-<ol>
-	<%- partial('item.ejs', curses) %>
-</ol>
+	<ol>
+<%- partial('item.ejs', curses) %>
+	</ol>
