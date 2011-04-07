@@ -11,6 +11,13 @@ body{
 	color: #888;
 }
 
+a{
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
 a:link, a:visited{
 	color: #02addb;
 	text-decoration: none;
@@ -18,8 +25,8 @@ a:link, a:visited{
 }
 
 a:hover, a:active, a:focus{
-	 color: #41d7ff;
-	 text-decoration: underline;
+	 color: #78e1fe;
+	text-shadow: 0px 0px 10px #ddf8ff;
 }
 
 h1,h2,h3{
@@ -65,6 +72,47 @@ li{
 	background:#c0fe16; color:#000; text-shadow: none;
 }
 
+
+/* html5 elements
+--------------------------------------------- */
+header, nav, footer, hgroup{  
+    display: block;  
+}
+
+
+/* footer
+--------------------------------------------- */
+footer{
+	color: #3b3b3b;
+	font-size: 1em;
+	margin-top: 20px;
+	border-top: 1px dotted;
+	padding-top: 5px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+	line-height:2;
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+footer p{
+	float: left;
+	line-height:2;
+}
+
+/* bottom nav
+--------------------------------------------- */
+nav li{
+	float: left;
+	list-style-type: disc;
+	list-style-position: inside;
+	margin-right: 20px;
+}
+
+nav li:first-child{
+	list-style: none;
+	margin-right: 8px;
+}
 
 /* list items
 --------------------------------------------- */
