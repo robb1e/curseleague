@@ -1,21 +1,146 @@
-html * {
-    border: medium none;
-    margin: 0;
-    padding: 0;
+/* master styles
+--------------------------------------------- */
+html{
+	background-color: #191919;
 }
-#wrapper {
-    font-family: arial,sans-serif;
-    margin: 20px auto;
-    width: 940px;
+
+body{
+	width: 1000px;
+	margin: 0 auto;
+	font-family: "HelveticaNeue-Light","HelveticaNeue",Helvetica,Arial,sans-serif;
+	color: #888;
 }
-.eight-col {
-    margin: 0 auto;
-    width: 620px;
+
+a{
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
 }
-div {
-    padding-bottom:25px;
+
+a:link, a:visited{
+	color: #02addb;
+	text-decoration: none;
+	outline: none;
 }
-.league{
-    float:left;
-    width:450px;
+
+a:hover, a:active, a:focus{
+	 color: #78e1fe;
+	text-shadow: 0px 0px 10px #ddf8ff;
+}
+
+h1,h2,h3{
+	color: #eee;
+}
+
+h2, h3{
+	letter-spacing: 3px;
+}
+
+h1{
+	font-family: 'Permanent Marker', arial, serif;
+	font-size: 4.063em;
+	text-align: center;
+}
+
+h2{
+	margin:20px 0 5px;
+	font-size:1.875em;
+}
+
+hgroup h2{
+	margin: 0 0 20px 0;
+	line-height: 1;
+}
+
+p{
+	line-height: 1.2;
+	margin-bottom: 7px;
+}
+
+li{
+	list-style: square;
+	list-style-position: inside;
+	margin-bottom: 5px;
+}
+
+::-moz-selection{
+	background:#c0fe16; color:#000; text-shadow: none;
+}
+
+::selection {
+	background:#c0fe16; color:#000; text-shadow: none;
+}
+
+
+/* html5 elements
+--------------------------------------------- */
+header, nav, footer, hgroup{  
+    display: block;  
+}
+
+
+/* footer
+--------------------------------------------- */
+footer{
+	color: #3b3b3b;
+	font-size: 1em;
+	margin-top: 20px;
+	border-top: 1px dotted;
+	padding-top: 5px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+	line-height:2;
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+footer p{
+	float: left;
+	line-height:2;
+}
+
+/* bottom nav
+--------------------------------------------- */
+nav li{
+	float: left;
+	list-style-type: disc;
+	list-style-position: inside;
+	margin-right: 20px;
+}
+
+nav li:first-child{
+	list-style: none;
+	margin-right: 8px;
+}
+
+/* list items
+--------------------------------------------- */
+.points{
+	color: #666;
+	padding-left: 5px;
+}
+
+
+/* error pages
+--------------------------------------------- */
+.errorPage{
+	margin-top: 40px;
+	font-size:	5em;
+	-webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.6, transparent), to(rgba(0,0,0,0.5)));
+}
+
+
+/* vs page
+--------------------------------------------- */
+.vsList{
+	float: left;
+	width: 50%;
+}
+
+.vs{
+	font-family: 'Permanent Marker', arial, serif;
+	color: #f00;
+	text-align: center;
+	font-size: 4.063em;
 }

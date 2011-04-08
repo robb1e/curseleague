@@ -1,6 +1,8 @@
-<h2><%- listinfo.name %></h2>
-<h3>This list swears <%- listlike %></h3>
-<!-- <%- level %> points, <%- average %> average-->
-<ol>
+	<hgroup>
+		<h1><%- listinfo.name ? listinfo.name : '...'  %></h1>
+		<h2><%- level %> points, <%- average %> mean</h2>
+	</hgroup>
+
+	<ol>
 <%- partial('item.ejs', curses) %>
-</ol>
+	</ol>
