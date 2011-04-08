@@ -5,7 +5,8 @@ html{
 }
 
 body{
-	width: 1000px;
+	width: 1024px;
+	padding:0 12px;
 	margin: 0 auto;
 	font-family: "HelveticaNeue-Light","HelveticaNeue",Helvetica,Arial,sans-serif;
 	color: #888;
