@@ -16,6 +16,10 @@ app.get('/', function(req, res){
 	res.render('index.ejs');
 });
 
+app.get('/about', function(req, res){
+    res.render('about.ejs');
+});
+
 app.get('/:username/:listname', function(req, res){
     var username = req.params.username;
     var listname = req.params.listname;
@@ -110,4 +114,4 @@ process.on('uncaughtException',function(error){
     throw new NotFound;
 });
 
-app.listen(80);
+app.listen(3000);

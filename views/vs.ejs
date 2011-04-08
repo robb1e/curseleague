@@ -6,7 +6,7 @@
 	<section class="vsList">
 		<header>
 			<h2><%- first.listinfo.name ? first.listinfo.name : '...' %></h2>
-			<h3><%- first.level %> points, <%- first.average %> mean</h3>
+			<h3>This list swears <%- first.listlike %></h3>
 		</header>
 		<ol>
 <%- partial('item.ejs', first.curses) %>
@@ -15,7 +15,7 @@
 	<section class="vsList">
 		<header>
 			<h2><%- second.listinfo.name ?  second.listinfo.name : '...' %></h2>
-			<h3><%- second.level %> points, <%- second.average %> mean</h3>
+			<h3>This list swears <%- second.listlike %></h3>
 		</header>
 		<ol>
 <%- partial('item.ejs', second.curses) %>
