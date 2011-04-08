@@ -26,7 +26,7 @@ a:link, a:visited{
 }
 
 a:hover, a:active, a:focus{
-	 color: #78e1fe;
+	color: #78e1fe;
 	text-shadow: 0px 0px 10px #ddf8ff;
 }
 
@@ -99,6 +99,19 @@ footer{
 footer p{
 	float: left;
 	line-height:2;
+	margin-left: 20px;
+}
+
+footer p a:link,
+footer p a:visited{
+	color: #5d5d5d;
+}
+
+footer p a:hover,
+footer p a:active,
+footer p a:focus{
+	color: #909090;
+	text-shadow: 0px 0px 10px #a9a9a9;
 }
 
 /* bottom nav
@@ -107,13 +120,17 @@ nav li{
 	float: left;
 	list-style-type: disc;
 	list-style-position: inside;
-	margin-right: 20px;
-}
-
-nav li.first-item{
-	list-style: none;
 	margin-right: 8px;
 }
+
+.ie nav li{
+	margin-right: 14px;
+}
+
+nav li:first-child{
+	list-style: none;
+}
+
 
 /* list items
 --------------------------------------------- */
