@@ -4,19 +4,19 @@
 	</hgroup>
 
 	<section class="vsList">
-		<header>
+		<hgroup>
 			<h2><%- first.listinfo.name ? first.listinfo.name : '...' %></h2>
-			<h3>This list swears <%- first.listlike %></h3>
-		</header>
+			<h3>This list swears <span class="swears-like"><%- first.listlike %></span></h3>
+		</hgroup>
 		<ol>
 <%- partial('item.ejs', first.curses) %>
 		</ol>
 	</section>
 	<section class="vsList">
-		<header>
+		<hgroup>
 			<h2><%- second.listinfo.name ?  second.listinfo.name : '...' %></h2>
-			<h3>This list swears <%- second.listlike %></h3>
-		</header>
+			<h3>This list swears <span class="swears-like"><%- second.listlike %></span></h3>
+		</hgroup>
 		<ol>
 <%- partial('item.ejs', second.curses) %>
 		</ol>
