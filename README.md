@@ -4,8 +4,16 @@ The curse league application builds on top of CurseBird.com to include Twitter l
 
 ## Requirements
 
+### Installed by the user
+
  * nodejs v0.4.1
  * npm v0.2.1
+
+### Installed by npm
+
+ * expressjs
+ * connect
+ * ejs
 
 ## Installation
 
