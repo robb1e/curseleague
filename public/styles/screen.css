@@ -5,7 +5,8 @@ html{
 }
 
 body{
-	width: 1000px;
+	width: 1024px;
+	padding:0 12px;
 	margin: 0 auto;
 	font-family: "HelveticaNeue-Light","HelveticaNeue",Helvetica,Arial,sans-serif;
 	color: #888;
@@ -25,7 +26,7 @@ a:link, a:visited{
 }
 
 a:hover, a:active, a:focus{
-	 color: #78e1fe;
+	color: #78e1fe;
 	text-shadow: 0px 0px 10px #ddf8ff;
 }
 
@@ -48,9 +49,17 @@ h2{
 	font-size:1.875em;
 }
 
+h3{
+	font-size: 1.125em;
+}
+
 hgroup h2{
-	margin: 0 0 20px 0;
+	margin: 20px 0;
 	line-height: 1;
+}
+
+hgroup h3{
+	margin-bottom: 15px;
 }
 
 p{
@@ -98,6 +107,19 @@ footer{
 footer p{
 	float: left;
 	line-height:2;
+	margin-left: 20px;
+}
+
+footer p a:link,
+footer p a:visited{
+	color: #666;
+}
+
+footer p a:hover,
+footer p a:active,
+footer p a:focus{
+	color: #909090;
+	text-shadow: 0px 0px 10px #a9a9a9;
 }
 
 /* bottom nav
@@ -106,13 +128,17 @@ nav li{
 	float: left;
 	list-style-type: disc;
 	list-style-position: inside;
-	margin-right: 20px;
+	margin-right: 8px;
+}
+
+.ie nav li{
+	margin-right: 14px;
 }
 
 nav li:first-child{
 	list-style: none;
-	margin-right: 8px;
 }
+
 
 /* list items
 --------------------------------------------- */
@@ -121,13 +147,17 @@ nav li:first-child{
 	padding-left: 5px;
 }
 
+.swears-like{
+	color: #c0fe16;
+}
+
 
 /* error pages
 --------------------------------------------- */
 .errorPage{
 	margin-top: 40px;
 	font-size:	5em;
-	-webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.6, transparent), to(rgba(0,0,0,0.5)));
+	-webkit-box-reflect: below -0.3em -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.6, transparent), to(rgba(0,0,0,0.5)));
 }
 
 
