@@ -5,3 +5,33 @@
 <h2>This little project</h2>
 <p>This little project was brought to life after a conversation at work and was developed over a few evenings.</p>
 <p>This is an open project, with the code sitting on <a href="https://github.com/robb1e/curseleague">Github</a></p>
+
+<h2>Building CurseLeague.com</h2>
+<p>
+I really wanted an excuse to play with NodeJS once again and after a conversation with <a href="http://twitter.com/blagdaross">blagdaross</a> in the office I had my idea.  I had also been looking for an excuse to stretch the legs of Joyents <a href="http://no.de">no.de</a> hosting service for NodeJS.  I had all of the pieces needed:
+</p>
+<ul>
+	<li><a href="http://dev.twitter.com/">Twitter API</a></li>
+	<li><a href="http://cursebird.com/help/api">Cursebird API</a></li>
+	<li><a href="https://no.de/">no.de hosting</a></li>
+</ul>
+<p>
+Once again I turned to the trusty toolset of <a href="http://expressjs.com/">ExpressJS</a> for routing and EJS for template rendering.  I wanted to build straight out of Twitter lists, so first thing was to hit Twitter to get the members of a list.  As this is an open call, no oAuth handshaking has to take place, which is nice.  However, getting the list of members returns a whole bunch of metadata about each member on the list.  I didn't need any of this information, and I couldn't find all of the members without pagination.  This is where I started to have some fun with writing asynchronous code for very much a synchronous web request.  
+</p><p>
+Once I had the list of members of a list, I could do a lookup on Cursebird for the points they have given those members.  I have to say the Cursebird API is just fantastic!  Talk about the API being the website, just stick .json on the end of any page you visit and get the data you need.  No API key nonsense for open data is also a great move.  Well done to Cursebird on their efforts.  After sorting the list according to points, all it takes is rendering.  
+</p><p>
+I recognised that crunching all of this data with potentially a few hundred server side calls to Twitter and Cursebird would be slow, so I introduced a really dumb key-value pair cache and use that cache at every level, from caching a single request to Twitter or Cursebird, to caching a whole dataset for a webpage.
+</p><p>
+Onto hosting, and no.de has this really interesting deployment technique where you do a git push into a repository you're given on the virtual server you have.  From there a post-push hook is fired which deploys your app and runs a named file (server.js).  The no.de real time analytics are really impressive, although it'd be great to get historical information out of that too.
+</p><p>
+The one on-going grievance I'm dealing with is locally I deploy on port 3000 but in production I deploy on port 80, and currently I'm changing this on commits as a work.  I had a way of doing this through a node module I'd built a while ago to <a href="https://github.com/theteam/node-properties">get properties from a json file</a>, although up until now I'd been using <a href="https://github.com/visionmedia/ndistro">nDistro</a> to manage my dependencies, but with no.de I'd have to do this a little differently.  I could push the properties project into the <a href="http://npmjs.org/">NPM</a> repositories but I'm also thinking of building a node module that can read nDistro files and add dependencies at run-time.  It's food for thought.
+</p><p>
+Finally a big thank you to <a href="http://twitter.com/tregoning">JT</a> for working up the styling.
+</p><p>
+Cheers,
+</p><p>
+Robbie
+</p>
+	
+	
+

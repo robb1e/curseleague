@@ -4,7 +4,7 @@ var request = {};
 request.request = function(host, path, callback){
     console.log("requesting: " + host + path);
     var connection = http.createClient(80, host);
-    var request = connection.request('GET', path, {'host':host});
+    var request = connection.request('GET', path, {'host':host, 'user-agent':'curseleague.com'});
     request.end();
     request.on('response', function(response){
         var data = "";
